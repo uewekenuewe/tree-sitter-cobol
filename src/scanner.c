@@ -36,8 +36,8 @@ bool start_with_word( TSLexer *lexer, char *words[], int number_of_words) {
         lexer->advance(lexer, true);
     }
 
-    char *keyword_pointer[number_of_words];
-    bool continue_check[number_of_words];
+    char *keyword_pointer[50];
+    bool continue_check[50];
     for(int i=0; i<number_of_words; ++i) {
         keyword_pointer[i] = words[i];
         continue_check[i] = true;
