@@ -31,12 +31,13 @@ module.exports = grammar({
   ],
 
   rules: {
-    start: $ => repeat(
+    start: $ =>
       choice(
         $.program_definition,
+              repeat(seq($.data_description, repeat1('.')))
         //optional($.function_definition) //todo
-      )
-    ),
+      ),
+
 
     _comment: $ => /\*>[^\n]*/,
 

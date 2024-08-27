@@ -12152,6 +12152,10 @@
       "required": false,
       "types": [
         {
+          "type": "data_description",
+          "named": true
+        },
+        {
           "type": "program_definition",
           "named": true
         }
