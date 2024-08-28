@@ -1,0 +1,972 @@
+  comment:
+      1. ✓ [32mcomment[0m
+  copybook:
+      2. ✓ [32mcopybook[0m
+  data_description:
+      3. ✗ [31mfile-section[0m
+      4. ✗ [31mvalue clause[0m
+      5. ✗ [31mpicture decimal[0m
+      6. ✓ [32mcomputational[0m
+  evaluate:
+      7. ✗ [31mevaluate when[0m
+      8. ✗ [31mevaluate when 2[0m
+      9. ✗ [31mevaluate when other[0m
+     10. ✗ [31mevaluate when when[0m
+     11. ✗ [31mevaluate when also[0m
+  file:
+     12. ✗ [31mopen input[0m
+     13. ✗ [31mopen output[0m
+     14. ✗ [31mopen i-o[0m
+     15. ✗ [31mopen extend[0m
+     16. ✗ [31mclose[0m
+     17. ✗ [31mclose reel[0m
+     18. ✗ [31mclose unit[0m
+     19. ✗ [31mclose unit removal[0m
+     20. ✗ [31mclose unit for removal[0m
+     21. ✗ [31mclose unit no rewind[0m
+     22. ✗ [31mclose unit with no rewind[0m
+     23. ✗ [31mclose unit lock[0m
+     24. ✗ [31mclose unit with lock[0m
+  goto:
+     25. ✗ [31mgo[0m
+     26. ✗ [31mgo to[0m
+     27. ✗ [31mgo to depending[0m
+     28. ✗ [31mgo to depending on[0m
+     29. ✗ [31mgo string[0m
+     30. ✗ [31mgo string of string[0m
+  minimal-cobol:
+     31. ✗ [31mMinimal COBOL program[0m
+  occurs:
+     32. ✓ [32moccurs[0m
+     33. ✓ [32moccurs to[0m
+     34. ✓ [32moccurs times[0m
+     35. ✓ [32moccurs depending[0m
+  perform:
+     36. ✗ [31mperform label[0m
+     37. ✗ [31mperform label thru label[0m
+     38. ✗ [31mperform label FOREVER[0m
+     39. ✗ [31mperform continue[0m
+     40. ✗ [31mperform label times[0m
+     41. ✗ [31mperform label UNTIL[0m
+  pic_9:
+     42. ✓ [32mPIC 9[0m
+  pic_x:
+     43. ✓ [32mPIC X[0m
+  redefines:
+     44. ✓ [32mRedefines[0m
+  select:
+     45. ✓ [32massign[0m
+     46. ✓ [32massign to[0m
+     47. ✓ [32massign to DISK[0m
+     48. ✓ [32massign to string_literal[0m
+     49. ✓ [32massign to external[0m
+     50. ✓ [32massign to dynamic[0m
+     51. ✓ [32massign to dynamic DISPLAY[0m
+     52. ✓ [32massign to PRINTER string_literal[0m
+     53. ✓ [32massign to PRINTER string_literal qualified_word[0m
+     54. ✓ [32maccess SEQUENTIAL[0m
+     55. ✓ [32maccess mode SEQUENTIAL[0m
+     56. ✓ [32maccess is SEQUENTIAL[0m
+     57. ✓ [32maccess mode is SEQUENTIAL[0m
+     58. ✓ [32maccess mode is DYNAMIC[0m
+     59. ✓ [32maccess mode is RANDOM[0m
+     60. ✓ [32malternate record[0m
+     61. ✓ [32malternate record key[0m
+     62. ✓ [32malternate record is[0m
+     63. ✓ [32malternate record key is[0m
+     64. ✓ [32malternate record duplicates[0m
+     65. ✓ [32malternate record with duplicates[0m
+     66. ✓ [32msequence[0m
+     67. ✓ [32mcollating sequence[0m
+     68. ✓ [32msequence is[0m
+     69. ✓ [32mcollating sequence is[0m
+  source-object-computer:
+     70. ✓ [32msource computer[0m
+     71. ✓ [32msource computer linux[0m
+     72. ✓ [32msource computer debugging mode[0m
+     73. ✓ [32msource computer with debugging mode[0m
+     74. ✓ [32msource computer linux debugging mode[0m
+     75. ✓ [32msource computer linux with debugging mode[0m
+     76. ✓ [32mobject computer[0m
+     77. ✓ [32mobject computer linux[0m
+     78. ✓ [32mobject computer memory size is 2 words[0m
+     79. ✓ [32mobject computer memory size 2 characters[0m
+     80. ✓ [32mobject computer program collating sequence is ebcdic-code[0m
+     81. ✓ [32mobject computer segment-limit is 2.[0m
+
+34 failures:
+
+correct / [32mexpected[0m / [31munexpected[0m
+
+  1. file-section:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (environment_division
+          (input_output_section
+            (select_statement
+              file_name: (WORD)
+              (assign_clause
+                to: (string)))))
+        (data_division
+          (file_section
+            (file_description
+              (file_type
+                (FD))
+              (file_description_entry
+                (WORD))
+              (record_description_list
+                (data_description
+                  (level_number)
+                  (entry_name)
+                  (picture_clause
+                    (picture_x)))
+                (data_description
+                  (level_number)
+                  (entry_name)
+                  (picture_clause
+                    (picture_x))))))
+          (working_storage_section
+            (data_description
+              (level_number)
+              (entry_name)
+              (picture_clause
+                (picture_9)))))
+        (procedure_division
+          (display_statement
+            (number
+[31m              (integer)))
+          (period))))[0m
+[32m              (integer))))))[0m
+
+
+  2. value clause:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (data_division
+          (working_storage_section
+            (data_description
+              (level_number)
+              (entry_name)
+              (picture_clause
+                (picture_9))
+              (value_clause
+[31m                (value_item
+                  (number
+                    (decimal)))))))[0m
+[32m                (number
+                  (decimal))))))[0m
+        (procedure_division)))
+
+
+  3. picture decimal:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (data_division
+          (working_storage_section
+            (data_description
+              (level_number)
+              (entry_name)
+              (picture_clause
+                (picture_9))
+              (value_clause
+[31m                (value_item
+                  (number
+                    (decimal)))))))[0m
+[32m                (number
+                  (decimal))))))[0m
+        (procedure_division)))
+
+
+  4. evaluate when:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (procedure_division
+[31m          (evaluate_header
+            (evaluate_subject[0m
+[32m          (evaluate_statement
+            subjects: (evaluate_subject[0m
+              (expr
+                (number
+[31m                  (integer)))))
+          (when
+            (expr
+              (number
+                (integer))))
+          (goto_statement
+            to: (label
+              (qualified_word
+                (WORD))))
+          (END_EVALUATE)
+          (period)[0m
+[32m                  (integer))))
+            cases: (evaluate_case
+              when: (expr
+                (number
+                  (integer)))
+              statements: (goto_statement
+                to: (label
+                  (qualified_word
+                    (WORD))))))[0m
+          (paragraph_header))))
+
+
+  5. evaluate when 2:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (procedure_division
+[31m          (evaluate_header
+            (evaluate_subject[0m
+[32m          (evaluate_statement
+            subjects: (evaluate_subject[0m
+              (expr
+                (number
+[31m                  (integer)))))
+          (when
+            (expr
+              (number
+                (integer))))
+          (goto_statement
+            to: (label
+              (qualified_word
+                (WORD))))
+          (when
+            (expr
+              (number
+                (integer))))
+          (goto_statement
+            to: (label
+              (qualified_word
+                (WORD))))
+          (END_EVALUATE)
+          (period)[0m
+[32m                  (integer))))
+            cases: (evaluate_case
+              when: (expr
+                (number
+                  (integer)))
+              statements: (goto_statement
+                to: (label
+                  (qualified_word
+                    (WORD)))))
+            cases: (evaluate_case
+              when: (expr
+                (number
+                  (integer)))
+              statements: (goto_statement
+                to: (label
+                  (qualified_word
+                    (WORD))))))[0m
+          (paragraph_header))))
+
+
+  6. evaluate when other:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (procedure_division
+[31m          (evaluate_header
+            (evaluate_subject[0m
+[32m          (evaluate_statement
+            subjects: (evaluate_subject[0m
+              (expr
+                (number
+[31m                  (integer)))))
+          (when
+            (expr
+              (number
+                (integer))))
+          (goto_statement
+            to: (label
+              (qualified_word
+                (WORD))))
+          (when
+            (expr
+              (number
+                (integer))))
+          (goto_statement
+            to: (label
+              (qualified_word
+                (WORD))))
+          (when_other)
+          (goto_statement
+            to: (label
+              (qualified_word
+                (WORD))))
+          (END_EVALUATE)
+          (period)[0m
+[32m                  (integer))))
+            cases: (evaluate_case
+              when: (expr
+                (number
+                  (integer)))
+              statements: (goto_statement
+                to: (label
+                  (qualified_word
+                    (WORD)))))
+            cases: (evaluate_case
+              when: (expr
+                (number
+                  (integer)))
+              statements: (goto_statement
+                to: (label
+                  (qualified_word
+                    (WORD)))))
+            other: (evaluate_other
+              statement: (goto_statement
+                to: (label
+                  (qualified_word
+                    (WORD))))))[0m
+          (paragraph_header))))
+
+
+  7. evaluate when when:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (procedure_division
+[31m          (evaluate_header
+            (evaluate_subject[0m
+[32m          (evaluate_statement
+            subjects: (evaluate_subject[0m
+              (expr
+                (number
+[31m                  (integer)))))
+          (when
+            (expr
+              (number
+                (integer)))
+            (expr
+              (number
+                (integer))))
+          (goto_statement
+            to: (label
+              (qualified_word
+                (WORD))))
+          (END_EVALUATE)
+          (period)[0m
+[32m                  (integer))))
+            cases: (evaluate_case
+              when: (expr
+                (number
+                  (integer)))
+              when: (expr
+                (number
+                  (integer)))
+              statements: (goto_statement
+                to: (label
+                  (qualified_word
+                    (WORD))))))[0m
+          (paragraph_header))))
+
+
+  8. evaluate when also:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (procedure_division
+[31m          (evaluate_header
+            (evaluate_subject[0m
+[32m          (evaluate_statement
+            subjects: (evaluate_subject[0m
+              (expr
+                (number
+                  (integer))))
+[31m            (evaluate_subject[0m
+[32m            subjects: (evaluate_subject[0m
+              (expr
+                (number
+[31m                  (integer)))))
+          (when
+            (expr
+              (number
+                (integer)))
+            (expr
+              (number
+                (integer))))
+          (goto_statement
+            to: (label
+              (qualified_word
+                (WORD))))
+          (END_EVALUATE)
+          (period)[0m
+[32m                  (integer))))
+            cases: (evaluate_case
+              when: (expr
+                (number
+                  (integer)))
+              when: (expr
+                (number
+                  (integer)))
+              statements: (goto_statement
+                to: (label
+                  (qualified_word
+                    (WORD))))))[0m
+          (paragraph_header))))
+
+
+  9. open input:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (environment_division
+          (input_output_section
+            (select_statement
+              file_name: (WORD)
+              (assign_clause
+                to: (PRINTER)))))
+        (procedure_division
+          (open_statement
+            (open_arg
+              mode: (INPUT)
+[31m              file_name_list: (WORD)))
+          (period))))[0m
+[32m              file_name_list: (WORD))))))[0m
+
+
+  10. open output:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (environment_division
+          (input_output_section
+            (select_statement
+              file_name: (WORD)
+              (assign_clause
+                to: (PRINTER)))))
+        (procedure_division
+          (open_statement
+            (open_arg
+              mode: (OUTPUT)
+[31m              file_name_list: (WORD)))
+          (period))))[0m
+[32m              file_name_list: (WORD))))))[0m
+
+
+  11. open i-o:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (environment_division
+          (input_output_section
+            (select_statement
+              file_name: (WORD)
+              (assign_clause
+                to: (PRINTER)))))
+        (procedure_division
+          (open_statement
+            (open_arg
+              mode: (I_O)
+[31m              file_name_list: (WORD)))
+          (period))))[0m
+[32m              file_name_list: (WORD))))))[0m
+
+
+  12. open extend:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (environment_division
+          (input_output_section
+            (select_statement
+              file_name: (WORD)
+              (assign_clause
+                to: (PRINTER)))))
+        (procedure_division
+          (open_statement
+            (open_arg
+              mode: (EXTEND)
+[31m              file_name_list: (WORD)))
+          (period))))[0m
+[32m              file_name_list: (WORD))))))[0m
+
+
+  13. close:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (environment_division
+          (input_output_section
+            (select_statement
+              file_name: (WORD)
+              (assign_clause
+                to: (PRINTER)))))
+        (procedure_division
+          (close_statement
+            (close_arg
+[31m              file_handler: (WORD)))
+          (period))))[0m
+[32m              file_handler: (WORD))))))[0m
+
+
+  14. close reel:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (environment_division
+          (input_output_section
+            (select_statement
+              file_name: (WORD)
+              (assign_clause
+                to: (PRINTER)))))
+        (procedure_division
+          (close_statement
+            (close_arg
+              file_handler: (WORD)
+              (close_option
+[31m                (REEL))))
+          (period))))[0m
+[32m                (REEL)))))))[0m
+
+
+  15. close unit:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (environment_division
+          (input_output_section
+            (select_statement
+              file_name: (WORD)
+              (assign_clause
+                to: (PRINTER)))))
+        (procedure_division
+          (close_statement
+            (close_arg
+              file_handler: (WORD)
+              (close_option
+[31m                (UNIT))))
+          (period))))[0m
+[32m                (UNIT)))))))[0m
+
+
+  16. close unit removal:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (environment_division
+          (input_output_section
+            (select_statement
+              file_name: (WORD)
+              (assign_clause
+                to: (PRINTER)))))
+        (procedure_division
+          (close_statement
+            (close_arg
+              file_handler: (WORD)
+              (close_option
+                (UNIT)
+[31m                (REMOVAL))))
+          (period))))[0m
+[32m                (REMOVAL)))))))[0m
+
+
+  17. close unit for removal:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (environment_division
+          (input_output_section
+            (select_statement
+              file_name: (WORD)
+              (assign_clause
+                to: (PRINTER)))))
+        (procedure_division
+          (close_statement
+            (close_arg
+              file_handler: (WORD)
+              (close_option
+                (UNIT)
+[31m                (REMOVAL))))
+          (period))))[0m
+[32m                (REMOVAL)))))))[0m
+
+
+  18. close unit no rewind:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (environment_division
+          (input_output_section
+            (select_statement
+              file_name: (WORD)
+              (assign_clause
+                to: (PRINTER)))))
+        (procedure_division
+          (close_statement
+            (close_arg
+              file_handler: (WORD)
+              (close_option
+                (NO)
+[31m                (REWIND))))
+          (period))))[0m
+[32m                (REWIND)))))))[0m
+
+
+  19. close unit with no rewind:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (environment_division
+          (input_output_section
+            (select_statement
+              file_name: (WORD)
+              (assign_clause
+                to: (PRINTER)))))
+        (procedure_division
+          (close_statement
+            (close_arg
+              file_handler: (WORD)
+              (close_option
+                (NO)
+[31m                (REWIND))))
+          (period))))[0m
+[32m                (REWIND)))))))[0m
+
+
+  20. close unit lock:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (environment_division
+          (input_output_section
+            (select_statement
+              file_name: (WORD)
+              (assign_clause
+                to: (PRINTER)))))
+        (procedure_division
+          (close_statement
+            (close_arg
+              file_handler: (WORD)
+              (close_option
+[31m                (LOCK))))
+          (period))))[0m
+[32m                (LOCK)))))))[0m
+
+
+  21. close unit with lock:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (environment_division
+          (input_output_section
+            (select_statement
+              file_name: (WORD)
+              (assign_clause
+                to: (PRINTER)))))
+        (procedure_division
+          (close_statement
+            (close_arg
+              file_handler: (WORD)
+              (close_option
+[31m                (LOCK))))
+          (period))))[0m
+[32m                (LOCK)))))))[0m
+
+
+  22. go:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (procedure_division
+          (paragraph_header)
+          (goto_statement
+            to: (label
+              (qualified_word
+                (WORD))))
+[31m          (period)[0m
+          (paragraph_header))))
+
+
+  23. go to:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (procedure_division
+          (paragraph_header)
+          (goto_statement
+            to: (label
+              (qualified_word
+                (WORD))))
+[31m          (period)[0m
+          (paragraph_header))))
+
+
+  24. go to depending:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (data_division
+          (working_storage_section
+            (data_description
+              (level_number)
+              (entry_name)
+              (picture_clause
+                (picture_9)))))
+        (procedure_division
+          (goto_statement
+            to: (label
+              (qualified_word
+                (WORD)))
+            to: (label
+              (qualified_word
+                (WORD)))
+            depending: (qualified_word
+              (WORD)))
+[31m          (period)[0m
+          (paragraph_header)
+          (paragraph_header))))
+
+
+  25. go to depending on:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (data_division
+          (working_storage_section
+            (data_description
+              (level_number)
+              (entry_name)
+              (picture_clause
+                (picture_9)))))
+        (procedure_division
+          (goto_statement
+            to: (label
+              (qualified_word
+                (WORD)))
+            to: (label
+              (qualified_word
+                (WORD)))
+            depending: (qualified_word
+              (WORD)))
+[31m          (period)[0m
+          (paragraph_header)
+          (paragraph_header))))
+
+
+  26. go string:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (procedure_division
+          (paragraph_header)
+          (goto_statement
+            to: (label
+              (string)))
+[31m          (period)[0m
+          (paragraph_header))))
+
+
+  27. go string of string:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (procedure_division
+          (paragraph_header)
+          (goto_statement
+            to: (label
+              (string)
+              (string)))
+[31m          (period)[0m
+          (section_header)
+          (paragraph_header))))
+
+
+  28. Minimal COBOL program:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (procedure_division
+          (stop_statement)
+[31m          (period)
+          (stop_statement)
+          (period))))[0m
+[32m          (stop_statement))))[0m
+
+
+  29. perform label:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (procedure_division
+          (perform_statement_call_proc
+            procedure: (perform_procedure
+              (label
+                (qualified_word
+                  (WORD)))))
+[31m          (period)[0m
+          (paragraph_header))))
+
+
+  30. perform label thru label:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (procedure_division
+          (perform_statement_call_proc
+            procedure: (perform_procedure
+              (label
+                (qualified_word
+                  (WORD)))
+              (THRU)
+              (label
+                (qualified_word
+                  (WORD)))))
+[31m          (period)[0m
+          (paragraph_header)
+          (paragraph_header))))
+
+
+  31. perform label FOREVER:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (procedure_division
+          (perform_statement_call_proc
+            procedure: (perform_procedure
+              (label
+                (qualified_word
+                  (WORD))))
+            option: (perform_option
+              (FOREVER)))
+[31m          (period)[0m
+          (paragraph_header))))
+
+
+  32. perform continue:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (procedure_division
+          (perform_statement_loop
+            option: (perform_option
+[31m              (FOREVER)))
+          (continue_statement)
+          (END_PERFORM)
+          (period))))[0m
+[32m              (FOREVER))
+            statements: (continue_statement)))))[0m
+
+
+  33. perform label times:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (procedure_division
+          (perform_statement_call_proc
+            procedure: (perform_procedure
+              (label
+                (qualified_word
+                  (WORD))))
+            option: (perform_option
+              times: (number
+                (integer))))
+[31m          (period)[0m
+          (paragraph_header))))
+
+
+  34. perform label UNTIL:
+
+    (start
+      (program_definition
+        (identification_division
+          (program_name))
+        (data_division
+          (working_storage_section
+            (data_description
+              (level_number)
+              (entry_name)
+              (picture_clause
+                (picture_9)))))
+        (procedure_division
+          (perform_statement_call_proc
+            procedure: (perform_procedure
+              (label
+                (qualified_word
+                  (WORD))))
+            option: (perform_option
+              varying: (perform_varying
+                (qualified_word
+                  (WORD))
+                from: (number
+                  (integer))
+                by: (number
+                  (integer))
+                until: (expr
+                  (qualified_word
+                    (WORD))
+                  (ge)
+                  (number
+                    (integer))))))
+[31m          (period)[0m
+          (paragraph_header))))
+
